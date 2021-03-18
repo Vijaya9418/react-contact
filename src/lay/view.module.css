@@ -1,0 +1,55 @@
+.allcon {
+    background-color: #fe7a66;
+    display: block;
+    width: 80%;
+    padding: 10px 10%;
+  }
+  .name,
+.no {
+  background-color: #45aab4;
+  margin: 2px 0px;
+  width: 35vw;
+  padding: 10px 2vw;
+  color: whitesmoke;
+  display: inline-block;
+  animation-name: friend;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  position: relative;
+ 
+}
+@keyframes friend {
+    
+  0% {
+    background-color: #fe7a66;
+    top: 0px;
+    left: 0px;
+    
+
+   
+  }
+  30% {
+    background-color: #45aab4;
+    top: 200px;
+    left: 20px;
+   
+  }
+  50% {
+    background-color: blueviolet;
+    top: 400px;
+    left: 500px;
+
+  }
+  100% {
+    background-color: #fe7a66;
+    top: 0px;
+    left: 0px;
+  }
+}
+  
+  .name {
+    width: 25vw;
+  }
+  .con {
+    padding: 10px 10vw;
+  }

@@ -1,0 +1,33 @@
+input {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.452);
+  }
+  label {
+    padding: 5px;
+    background-color: rgba(127, 255, 212, 0.575);
+    width: 200px;
+    display: inline-block;
+  }
+  form {
+    padding: 50px;
+    border: 5px solid burlywood;
+    border-radius: 12px;
+    display: block;
+    margin: 50px;
+  }
+  button {
+    padding: 5px;
+    background-color: dodgerblue;
+    color: aliceblue;
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 10px;
+  }
+  .inputk {
+    margin: 5px;
+    background-color: rgba(176, 127, 255, 0.356);
+    width: fit-content;
+    border-radius: 8px;
+    padding: 5px;
+    display: block;
+  }
