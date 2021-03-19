@@ -15,9 +15,9 @@ class View extends Component {
 
         if (this.props.aka) {
             return (
-                <div>
+                <div className={astyle.back}>
 
-                    <h1 className={astyle.allcon}>All contacts</h1>
+                    <h1 className={astyle.allcon}>All Contacts</h1>
                     {this.props.aka.map(i => <span className={astyle.con}>
                         <div className={astyle.name}>{i.name}</div><div className={astyle.no}>{i.no}</div>
                     </span>)}

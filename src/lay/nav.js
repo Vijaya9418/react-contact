@@ -26,12 +26,12 @@ export default class nav extends Component {
             
             <div>
                 <nav className={styles.nav}>
-                    
+           
                     <Link to='/home'>Home</Link>
-                    <Link to='/fav'>fav Contacts</Link>
+                    <Link to='/fav'>Contacts</Link>
                     <Link to='/add'>Add</Link>
 
-                    <button onClick={this.logout}>Logout</button>
+                    <button  className={styles.btn} onClick={this.logout}>Logout</button>
                     
                     
                 </nav>

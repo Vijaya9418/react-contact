@@ -23,7 +23,6 @@ class Add extends Component {
 
         return (
             <div>
-
                 <h1>{this.state.name},{this.state.no}</h1>
                 <form action="#">
                     <div className={vi.inputk}>

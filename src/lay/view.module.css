@@ -1,16 +1,53 @@
+.back
+{
+  background-image: url(../images/contact5.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+ 
+}
+
 .allcon {
     background-color: #fe7a66;
     display: block;
-    width: 80%;
+    width: 60%;
+    border-radius: 15px;
+    font-family: monospace;
+    display: inline-block;
     padding: 10px 10%;
+    
+    size: 30px;
+    margin-left: 90px;
   }
-  .name,
-.no {
-  background-color: #45aab4;
-  margin: 2px 0px;
-  width: 35vw;
+  .name
+  {
+    background-color: #55bac4;
+  margin: 10px;
+  width: 20vw;
+  border-style: solid;
+ border-width: 1px;
+ border-color: black;
+  border-radius: 20px;
+  font-weight: bold;
   padding: 10px 2vw;
-  color: whitesmoke;
+ color: black;
+  display: inline-block;
+  animation-name: friend;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  position: relative;
+ 
+  }
+.no {
+  background-color: #55bac4;
+  margin: 10px;
+  width: 20vw;
+  border-style: solid;
+ border-width: 1px;
+ border-color: black;
+  border-radius: 20px;
+  border-color: black;
+  padding: 10px 2vw;
+  color: black;
   display: inline-block;
   animation-name: friend;
   animation-duration: 10s;
@@ -18,38 +55,15 @@
   position: relative;
  
 }
-@keyframes friend {
-    
-  0% {
-    background-color: #fe7a66;
-    top: 0px;
-    left: 0px;
-    
 
-   
-  }
-  30% {
-    background-color: #45aab4;
-    top: 200px;
-    left: 20px;
-   
-  }
-  50% {
-    background-color: blueviolet;
-    top: 400px;
-    left: 500px;
-
-  }
-  100% {
-    background-color: #fe7a66;
-    top: 0px;
-    left: 0px;
-  }
-}
+.con {
+  background-color: #45abb46e;
   
-  .name {
-    width: 25vw;
-  }
-  .con {
-    padding: 10px 10vw;
-  }
+  border-radius: 20px;
+  border-color: black;
+  padding: 10px 3vw;
+  color: whitesmoke;
+  display: inline-block;
+ margin-bottom: 15px;
+ 
+}
