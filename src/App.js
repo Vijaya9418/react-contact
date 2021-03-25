@@ -39,11 +39,7 @@ export default function App() {
                         <Route exact path='/'><Login /></Route>
 
 
-                        {/* // we use switch when we want to show the not available page */}
-                        <Switch>
-                            <Route path='/'><h1>HOme</h1></Route>
-                            <Route><h1>Page not available sorry!</h1></Route>
-                        </Switch>
+                      
                     </Router>
                 </div>
 

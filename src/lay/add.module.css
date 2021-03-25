@@ -1,3 +1,12 @@
+.hole
+{
+background-image: url("../images/contact4.jpg");
+background-repeat: no-repeat;
+background-size: 100vw 100vh;
+display: block;
+height: 100vh;
+}
+
 input {
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.452);
@@ -14,6 +23,7 @@ input {
     border-radius: 12px;
     display: block;
     margin: 50px;
+    height: 60vh;
   }
   button {
     padding: 5px;
@@ -21,7 +31,7 @@ input {
     color: aliceblue;
     font-weight: bold;
     border-radius: 6px;
-    margin: 10px;
+    margin: 20px;
   }
   .inputk {
     margin: 5px;
@@ -30,4 +40,20 @@ input {
     border-radius: 8px;
     padding: 5px;
     display: block;
+    margin: 20px;
+  }
+  .bot
+  {
+    float: left;
+    padding: 10px 15px;
+    background-color: red;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 20vh;
+  }
+
+  .inputkk {
+   margin-top: 100px;
+   
   }

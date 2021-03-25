@@ -14,15 +14,21 @@ class View extends Component {
     render() {
 
         if (this.props.aka) {
-            return (
-                <div className={astyle.back}>
+            if (this.props.aka[0]) {
+                return (
+                    <div>
 
-                    <h1 className={astyle.allcon}>All Contacts</h1>
-                    {this.props.aka.map(i => <span className={astyle.con}>
-                        <div className={astyle.name}>{i.name}</div><div className={astyle.no}>{i.no}</div>
-                    </span>)}
-                </div>
-            )
+                        <h1 className={astyle.allcon}>All contacts</h1>
+                        {this.props.aka[0].contacts.map(i => <span className={astyle.con}>
+                            <div className={astyle.name}>{i.name}</div><div className={astyle.no}>{i.no}</div>
+                        </span>)}
+                    </div>
+                )
+            }
+            else {
+                return (<h1 className={astyle.allcon}>All contacts</h1>)
+            }
+
         }
         else {
             return (<h1>Loading....</h1>)
@@ -42,5 +48,5 @@ const mapDispatchToProps = {
 }
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect((props) => [{ collection: 'event' }]), firebaseConnect()
+    firestoreConnect((props) => [{ collection: 'event', doc: props.auth.uid }]), firebaseConnect()
 )(View)

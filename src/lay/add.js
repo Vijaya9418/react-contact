@@ -4,6 +4,7 @@ import { firebaseConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import vi from './add.module.css'
+import Nav from './nav'
 class Add extends Component {
     state = {
         name: '', no: ''
@@ -13,25 +14,65 @@ class Add extends Component {
     }
     submit = (e) => {
         e.preventDefault();
-        const news = {
-            name: this.state.name,
-            no: this.state.no
+
+        const { firestore } = this.props;
+        console.log('working')
+        if (this.props.aka[0]) {
+            console.log('workingnothing')
+            var news;
+            if (this.props.aka[0].contacts) {
+                news = {
+                    'contacts': [{
+                        name: this.state.name,
+                        no: this.state.no
+                    }, ...this.props.aka[0].contacts]
+                }
+            }
+            else {
+                news = {
+                    'contacts': [{
+                        name: this.state.name,
+                        no: this.state.no
+                    }]
+                }
+            }
+            firestore.update({ collection: 'event', doc: this.props.auth.uid }, news).then(() =>
+                alert('Added')
+
+            )
+            this.setState({ name: '', holder: new Date(), no: '' })
         }
-        this.props.firestore.add({ collection: 'event'  }, news).then(() => alert("added"))
+        else {
+            news = {
+                'contacts': [{
+                    name: this.state.name,
+                    no: this.state.no
+                }]
+            }
+            firestore.set({ collection: 'event', doc: this.props.auth.uid }, news).then(() =>
+                alert('Added')
+
+            )
+        }
+
+    
     }
     render() {
 
         return (
-            <div>
+            <div className={vi.hole}>
+                <Nav />
                 <h1>{this.state.name},{this.state.no}</h1>
                 <form action="#">
+                    <div className={vi.inputkk}>
                     <div className={vi.inputk}>
                         <label htmlFor="">Name :</label>
                         <input name="name" onChange={this.onch} value={this.state.name} required type="text" /></div>
                     <div className={vi.inputk}>
                         <label htmlFor="">Number :</label>
                         <input name="no" onChange={this.onch} value={this.state.no} required type="number" /></div>
-                    <button onClick={this.submit} >Submit</button>
+                        </div>
+                    <button className={vi.bot} onClick={this.submit} >Submit</button>
                 </form>
 
 
@@ -44,7 +85,7 @@ class Add extends Component {
 
 const mapStateToProps = state => {
     return {
-        aka: state.firestore.ordered.flash,
+        aka: state.firestore.ordered.event,
         auth: state.firebase.auth,
     }
 }
@@ -52,5 +93,5 @@ const mapDispatchToProps = {
 }
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    firestoreConnect((props) => [{ collection: 'flash', doc: props.auth.uid }]), firebaseConnect()
+    firestoreConnect((props) => [{ collection: 'event', doc: props.auth.uid }]), firebaseConnect()
 )(Add)
