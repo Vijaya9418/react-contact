@@ -14,48 +14,57 @@ class Add extends Component {
     }
     submit = (e) => {
         e.preventDefault();
+        if (this.state.name !== "") {
+            if (this.state.no.match(/^\d{10}$/)) {
+                const { firestore } = this.props;
+                console.log('working')
+                if (this.props.aka[0]) {
+                    console.log('workingnothing')
+                    var news;
+                    if (this.props.aka[0].contacts) {
+                        news = {
+                            'contacts': [{
+                                name: this.state.name,
+                                no: this.state.no
+                            }, ...this.props.aka[0].contacts]
+                        }
+                    }
+                    else {
+                        news = {
+                            'contacts': [{
+                                name: this.state.name,
+                                no: this.state.no
+                            }]
+                        }
+                    }
+                    firestore.update({ collection: 'event', doc: this.props.auth.uid }, news).then(() =>
+                        alert('Added')
 
-        const { firestore } = this.props;
-        console.log('working')
-        if (this.props.aka[0]) {
-            console.log('workingnothing')
-            var news;
-            if (this.props.aka[0].contacts) {
-                news = {
-                    'contacts': [{
-                        name: this.state.name,
-                        no: this.state.no
-                    }, ...this.props.aka[0].contacts]
+                    )
+                    this.setState({ name: '', holder: new Date(), no: '' })
                 }
+                else {
+                    news = {
+                        'contacts': [{
+                            name: this.state.name,
+                            no: this.state.no
+                        }]
+                    }
+                    firestore.set({ collection: 'event', doc: this.props.auth.uid }, news).then(() =>
+                        alert('Added')
+
+                    )
+                }
+
             }
             else {
-                news = {
-                    'contacts': [{
-                        name: this.state.name,
-                        no: this.state.no
-                    }]
-                }
+                alert("Number should be 10 digits");
             }
-            firestore.update({ collection: 'event', doc: this.props.auth.uid }, news).then(() =>
-                alert('Added')
-
-            )
-            this.setState({ name: '', holder: new Date(), no: '' })
         }
         else {
-            news = {
-                'contacts': [{
-                    name: this.state.name,
-                    no: this.state.no
-                }]
-            }
-            firestore.set({ collection: 'event', doc: this.props.auth.uid }, news).then(() =>
-                alert('Added')
-
-            )
+            alert("name can't be empty");
         }
 
-    
     }
     render() {
 
@@ -72,6 +81,8 @@ class Add extends Component {
                         <label htmlFor="">Number :</label>
                         <input name="no" onChange={this.onch} value={this.state.no} required type="number" /></div>
                         </div>
+
+                      
                     <button className={vi.bot} onClick={this.submit} >Submit</button>
                 </form>
 
